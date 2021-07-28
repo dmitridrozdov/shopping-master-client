@@ -1,25 +1,57 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import { Container, Grow } from '@material-ui/core'
+// import useStyles from './styles'
+import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui'
+import { SpeechState, useSpeechContext } from '@speechly/react-client'
+import { getProducts } from './actions/products'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AddProductToCurrentListForm from './components/AddProductForm/AddProductToCurrentListForm'
+import List from './components/List/List'
+import MyBar from './components/AppBar/MyBar'
+
+const App = () => {
+    // const classes = useStyles()
+    const { speechState } = useSpeechContext()
+    const main = useRef(null)
+    const dispatch = useDispatch()
+
+    const executeScroll = () => main.current.scrollIntoView()
+
+    useEffect(() => {
+        if(speechState === SpeechState.Recording) {
+            executeScroll()
+        }
+    }, [speechState])
+
+    useEffect(() => {
+        dispatch(getProducts())
+    }, [dispatch])
+
+    return (
+        <Container maxWidth='sm'>
+
+            <MyBar />
+
+            <Grow in>
+                <Container>
+                    <AddProductToCurrentListForm position='sticky' className='not-scrolled'/>
+                </Container>
+            </Grow>
+
+            <Grow in>
+                <Container ref={main}>
+                    <List />
+                </Container>
+            </Grow>
+
+            <PushToTalkButtonContainer>
+                <PushToTalkButton />
+                <ErrorPanel />
+            </PushToTalkButtonContainer>
+
+        </Container>
+    )
 }
 
-export default App;
+export default App
