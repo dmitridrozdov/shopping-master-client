@@ -54,10 +54,10 @@ const AddProductToCurrentListForm = () => {
     const handleSubmit = (e) => {
         console.log(productData)
         e.preventDefault()
-        const product = productData.product.toUpperCase()
+        const product = productData.product.toLowerCase()
         if(isProductUnique(product)) {
             setSuccessMessage(product)
-            dispatch(createProduct({ ...productData, product: product }))
+            dispatch(createProduct({ ...productData, product: product, category: 'manual' }))
         } 
         else
             setWarningMessage(product)
