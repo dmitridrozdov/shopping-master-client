@@ -1,7 +1,15 @@
 import * as api from '../api'
-import { CREATE, FETCH_ALL, DELETE } from '../constants/actionTypes'
+import { CREATE, FETCH_ALL, DELETE, FETCH_FULL } from '../constants/actionTypes'
 
-// Action Creator
+export const getALLProducts = () => async(dispatch) => {
+    try {
+        const { data } = await api.fetchAllProducts()
+        dispatch({ type: FETCH_FULL, payload: data })
+    } catch(error) {
+        console.log(error)
+    }   
+}
+
 export const getProducts = () => async(dispatch) => {
     try {
         const { data } = await api.fetchProducts()
