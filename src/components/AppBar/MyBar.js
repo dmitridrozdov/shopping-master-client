@@ -6,7 +6,7 @@ import Add from '@material-ui/icons/Add'
 
 const MyBar = () => {
     const classes = useStyles()
-    const currentListProductsLength = (useSelector((state) => state.products)).length
+    const currentListProductsLength = (useSelector((state) => state.currentlistproducts)).length
     return (
         <AppBar className = {classes.appBar} position='sticky' color='inherit' >
             <Toolbar>
