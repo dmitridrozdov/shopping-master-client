@@ -5,6 +5,7 @@ import { Container, Grow } from '@material-ui/core'
 import { PushToTalkButton, PushToTalkButtonContainer, ErrorPanel } from '@speechly/react-ui'
 import { SpeechState, useSpeechContext } from '@speechly/react-client'
 import { getProducts } from './actions/products'
+import { getALLProducts } from './actions/products'
 
 import AddProductToCurrentListForm from './components/AddProductForm/AddProductToCurrentListForm'
 import List from './components/List/List'
