@@ -8,7 +8,7 @@ import ListItemCustom from './ListItem/ListItem'
 
 const List = () => {
     const classes = useStyles()
-    const currentListProducts = useSelector((state) => state.products)
+    const currentListProducts = useSelector((state) => state.currentlistproducts)
     // const dispatch = useDispatch()
 
     return (
