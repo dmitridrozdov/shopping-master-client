@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import products from './products'
+import currentlistproducts from './currentlistproducts'
 // import auth from './auth'
 
-export default combineReducers({ products })
+export default combineReducers({ currentlistproducts })
