@@ -12,7 +12,7 @@ const AddProductToCurrentListForm = () => {
     const dispatch = useDispatch()
     const { segment } = useSpeechContext()
     const [productData, setProductData] = useState({ category: '', product: '', picture: '' })
-    const currentListProducts = useSelector(state => state.products)
+    const currentListProducts = useSelector(state => state.currentlistproducts)
     const [open, setOpen] = useState(false)
     const [severity, setSeverity] = useState('success')
     const [text, setText] = useState('')
