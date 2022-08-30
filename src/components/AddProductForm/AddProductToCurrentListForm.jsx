@@ -13,6 +13,7 @@ const AddProductToCurrentListForm = () => {
     const { segment } = useSpeechContext()
     const [productData, setProductData] = useState({ category: '', product: '', picture: '' })
     const currentListProducts = useSelector(state => state.currentlistproducts)
+    const products = useSelector((state) => state.products) //all products with categoryes
     const [open, setOpen] = useState(false)
     const [severity, setSeverity] = useState('success')
     const [text, setText] = useState('')
@@ -34,6 +35,18 @@ const AddProductToCurrentListForm = () => {
         setText('Product ' + product + ' duplicated')
     }
 
+    const getCategoryForProduct = (product) => {
+        const category = products
+            .map(p => {if(p.product === product) return p.category; else return ''})
+            .filter(c => {return c !== ''})
+        if(category.length === 1)
+            return category[0]
+        else if(category.length > 1)
+            return 'product duplicated'
+        else
+            return 'not classified'
+    }
+
     useEffect(() => {
         if(segment) {
             segment.words.forEach((p) => {
@@ -41,7 +54,8 @@ const AddProductToCurrentListForm = () => {
                     console.log('Product is: ' + p.value)
                     if(isProductUnique(p.value)) {
                         setSuccessMessage(p.value)
-                        dispatch(createProduct({ category: 'test', product: p.value, picture: 'test' }))
+                        const category = getCategoryForProduct(p.product)
+                        dispatch(createProduct({ category: category, product: p.value, picture: 'test' }))
                     } 
                     else 
                         setWarningMessage(p.value)
@@ -57,7 +71,8 @@ const AddProductToCurrentListForm = () => {
         const product = productData.product.toLowerCase()
         if(isProductUnique(product)) {
             setSuccessMessage(product)
-            dispatch(createProduct({ ...productData, product: product, category: 'manual' }))
+            const category = getCategoryForProduct(product)
+            dispatch(createProduct({ ...productData, product: product, category: category }))
         } 
         else
             setWarningMessage(product)
