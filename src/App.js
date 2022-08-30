@@ -29,6 +29,10 @@ const App = () => {
         dispatch(getProducts())
     }, [dispatch])
 
+    useEffect(() => {
+        dispatch(getALLProducts())
+    }, [dispatch])
+
     return (
         <Container maxWidth='sm'>
 
