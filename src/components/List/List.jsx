@@ -11,6 +11,17 @@ const List = () => {
     const currentListProducts = useSelector((state) => state.currentlistproducts)
     // const dispatch = useDispatch()
 
+    const transformToCategoryProductStructure = () => {
+        const onlyUnique = (value, index, self) => {
+            return self.indexOf(value) === index;
+        }
+        const categories = currentListProducts.map(p => p.category).filter(onlyUnique)
+        console.log(categories)
+        return ''
+    }
+
+    const categoriesWithProducts = transformToCategoryProductStructure()
+
     return (
         <MUList className={classes.list}>
             {currentListProducts.map((product) => (
