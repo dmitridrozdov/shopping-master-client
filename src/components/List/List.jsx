@@ -15,9 +15,7 @@ const List = () => {
         const onlyUnique = (value, index, self) => {
             return self.indexOf(value) === index;
         }
-        const categories = currentListProducts.map(p => p.category).filter(onlyUnique)
-        console.log(categories)
-        return ''
+        return currentListProducts.map(p => p.category).filter(onlyUnique)
     }
 
     const categoriesWithProducts = transformToCategoryProductStructure()
