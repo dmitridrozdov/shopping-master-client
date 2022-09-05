@@ -10,7 +10,7 @@ const Category = ({category}) => {
   const productsForCategory = currentListProducts.filter(p => p.category === category)
   return (
     <MUList className={classes.list}>
-      <div>{category}</div>
+      <div style={{ fontFamily: 'Montserrat', fontSize: '10px', color: 'lightgrey' }}>{category}</div>
       {productsForCategory.map((product) => (
         <Fade in={true} key={product._id}>
             <ListItemCustom id={product._id} product={product.product}/>
