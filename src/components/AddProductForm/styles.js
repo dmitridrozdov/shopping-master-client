@@ -6,7 +6,7 @@ export default makeStyles(() => ({
     marginTop: '14px',
     // marginRight: '20px',
     fontFamily: 'Montserrat',
-    fontSize: '12px',
+    fontSize: '10px',
   },
 
   textStyle: {
@@ -20,6 +20,7 @@ export default makeStyles(() => ({
 
   inputTextStyle: {
     fontFamily: 'Montserrat',
+    fontSize: '12px',
     // marginLeft: '10px',
     // width: '300px'
   },
