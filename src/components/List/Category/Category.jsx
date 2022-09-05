@@ -14,7 +14,6 @@ const Category = ({category}) => {
       {productsForCategory.map((product) => (
         <Fade in={true} key={product._id}>
             <ListItemCustom id={product._id} product={product.product}/>
-            {/* <div>{product.product}</div> */}
         </Fade>
       ))}
     </MUList>
