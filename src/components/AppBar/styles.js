@@ -9,7 +9,7 @@ export default makeStyles((theme) => ({
 
     headerTextStyle: {
         fontFamily: 'Arvo',
-        fontSize: '18px',
+        fontSize: '14px',
     },
 
 }));
