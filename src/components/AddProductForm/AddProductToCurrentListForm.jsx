@@ -94,9 +94,11 @@ const AddProductToCurrentListForm = () => {
             </Grid>
             
             <Grid item xs={6}>
-                <Button className={classes.button} variant='outlined' color='primary' disableElevation type='submit' fullWidth
+                <Button className={classes.button} variant='contained' color='primary' type='submit' fullWidth
                     onClick={ handleSubmit }
-                    disabled={productData.product === '' ? true : false} >
+                    disabled={productData.product === '' ? true : false} 
+                    disableRipple={productData.product === '' ? true : false} 
+                >
                         Add product
                 </Button>
             </Grid>
