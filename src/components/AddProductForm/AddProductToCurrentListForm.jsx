@@ -83,13 +83,19 @@ const AddProductToCurrentListForm = () => {
         setProductData({ category: '', product: '', picture: '' })
     }
 
+    const searchProducts = (e) => {
+        setProductData({ ...productData, product: e.target.value })
+        console.log(e.target.value)
+    }
+
+
     return (
         <Grid container spacing={2}>
             <CustomizedSnackbar open={open} setOpen={setOpen} severity={severity} text={text}/>
             <Grid item xs={6}>
                 <TextField id="standard-basic" label="Product" className={classes.inputItem} InputProps={{ className: classes.inputTextStyle }}
                     value={productData.product} 
-                    onChange={(e) => setProductData({ ...productData, product: e.target.value })}
+                    onChange={(e) => searchProducts(e)}
                 />
             </Grid>
             
