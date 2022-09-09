@@ -51,11 +51,11 @@ const AddProductToCurrentListForm = () => {
         if(segment) {
             segment.words.forEach((p) => {
                 if(segment.isFinal) {
-                    console.log('Product is: ' + p.value)
-                    if(isProductUnique(p.value)) {
-                        setSuccessMessage(p.value)
-                        const category = getCategoryForProduct(p.product)
-                        dispatch(createProduct({ category: category, product: p.value, picture: 'test' }))
+                    const product = p.value.toLowerCase().trim()
+                    if(isProductUnique(product)) {
+                        setSuccessMessage(product)
+                        const category = getCategoryForProduct(product)
+                        dispatch(createProduct({ category: category, product: product, picture: 'test' }))
                     } 
                     else 
                         setWarningMessage(p.value)
@@ -68,7 +68,7 @@ const AddProductToCurrentListForm = () => {
     const handleSubmit = (e) => {
         console.log(productData)
         e.preventDefault()
-        const product = productData.product.toLowerCase()
+        const product = productData.product.toLowerCase().trim()
         if(isProductUnique(product)) {
             setSuccessMessage(product)
             const category = getCategoryForProduct(product)
@@ -105,7 +105,7 @@ const AddProductToCurrentListForm = () => {
  
             <Grid item xs={12}>
                 <Typography align='center' gutterBottom className={classes.textStyle}>
-                    { segment && segment.words.map((w) => w.value).join(" ") }
+                    { segment && segment.words.map((w) => w.value.toLowerCase()).join(" ") }
                 </Typography>
             </Grid>
         </Grid>
