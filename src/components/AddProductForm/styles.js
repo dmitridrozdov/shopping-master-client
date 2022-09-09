@@ -20,7 +20,6 @@ export default makeStyles(() => ({
 
   inputTextStyle: {
     fontFamily: 'Montserrat',
-    fontSize: '12px',
     // marginLeft: '10px',
     // width: '300px'
   },
