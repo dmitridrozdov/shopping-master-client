@@ -17,6 +17,7 @@ const AddProductToCurrentListForm = () => {
     const [open, setOpen] = useState(false)
     const [severity, setSeverity] = useState('success')
     const [text, setText] = useState('')
+    const [fetchedProducts, setFetchedProducts] = useState([])
 
     const isProductUnique = useCallback((product) => {
         const products = currentListProducts.map(p => p.product)
@@ -85,7 +86,15 @@ const AddProductToCurrentListForm = () => {
 
     const searchProducts = (e) => {
         setProductData({ ...productData, product: e.target.value })
-        console.log(e.target.value)
+        const currentLenght = e.target.value.length
+        if(currentLenght > 0) {
+            setFetchedProducts(products.filter(p => p.product.slice(0, currentLenght) === e.target.value).map(p => p.product))
+        } else {
+            setFetchedProducts([])
+        }
+        // const fetchProducts = products.filter(p => p.product.slice(0, currentLenght) === e.target.value)
+        // console.log(fetchProducts.map(p => p.product))
+        console.log(fetchedProducts)
     }
 
 
@@ -111,7 +120,10 @@ const AddProductToCurrentListForm = () => {
  
             <Grid item xs={12}>
                 <Typography align='center' gutterBottom className={classes.textStyle}>
-                    { segment && segment.words.map((w) => w.value.toLowerCase()).join(" ") }
+                    {/* { segment && segment.words.map((w) => w.value.toLowerCase()).join(" ") } */}
+                    {
+                        
+                    }
                 </Typography>
             </Grid>
         </Grid>
