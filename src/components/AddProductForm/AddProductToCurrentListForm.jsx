@@ -117,15 +117,23 @@ const AddProductToCurrentListForm = () => {
                         Add product
                 </Button>
             </Grid>
- 
-            <Grid item xs={12}>
-                <Typography align='center' gutterBottom className={classes.textStyle}>
-                    {/* { segment && segment.words.map((w) => w.value.toLowerCase()).join(" ") } */}
-                    {
-                        
-                    }
-                </Typography>
-            </Grid>
+
+            { fetchedProducts.length === 0 ? null :
+                <Grid item xs={12}>
+                    <Typography align='center' gutterBottom className={classes.textStyle}>
+                        { fetchedProducts }
+                    </Typography>
+                </Grid>
+            }
+            { !segment ? null : 
+                <Grid item xs={12}>
+                    <Typography align='center' gutterBottom className={classes.textStyle}>
+                        { segment && segment.words.map((w) => w.value.toLowerCase()).join(" ") }
+                    </Typography>
+                </Grid>
+            }
+
+            
         </Grid>
     )
 }
