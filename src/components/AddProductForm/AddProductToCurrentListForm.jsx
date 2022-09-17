@@ -121,7 +121,9 @@ const AddProductToCurrentListForm = () => {
             { fetchedProducts.length === 0 ? null :
                 <Grid item xs={12}>
                     <Typography align='center' gutterBottom className={classes.textStyle}>
-                        { fetchedProducts }
+                        { fetchedProducts.map(product => (
+                            <Button>{product}</Button>
+                        )) }
                     </Typography>
                 </Grid>
             }
