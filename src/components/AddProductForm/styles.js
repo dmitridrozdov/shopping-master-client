@@ -15,6 +15,7 @@ export default makeStyles(() => ({
     fontSize: '10px',
     borderRadius: 50,
     marginLeft: '5px',
+    borderColor: '#E3E6E6',
   },
 
   textStyle: {
