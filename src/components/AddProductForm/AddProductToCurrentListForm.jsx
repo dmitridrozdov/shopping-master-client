@@ -92,8 +92,6 @@ const AddProductToCurrentListForm = () => {
         } else {
             setFetchedProducts([])
         }
-        // const fetchProducts = products.filter(p => p.product.slice(0, currentLenght) === e.target.value)
-        // console.log(fetchProducts.map(p => p.product))
         console.log(fetchedProducts)
     }
 
@@ -121,7 +119,7 @@ const AddProductToCurrentListForm = () => {
             { fetchedProducts.length === 0 ? null :
                 <Grid item xs={12}>
                     <Typography align='center' gutterBottom className={classes.textStyle}>
-                        { fetchedProducts.slice(0,3).map(product => (
+                        { fetchedProducts.slice(0,4).map(product => (
                             <Button variant='outlined' className={classes.fetchedProductsbutton}>
                                 {product}
                             </Button>
