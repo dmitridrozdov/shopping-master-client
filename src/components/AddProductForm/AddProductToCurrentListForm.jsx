@@ -122,7 +122,9 @@ const AddProductToCurrentListForm = () => {
                 <Grid item xs={12}>
                     <Typography align='center' gutterBottom className={classes.textStyle}>
                         { fetchedProducts.slice(0,3).map(product => (
-                            <Button>{product}</Button>
+                            <Button variant='outlined' className={classes.fetchedProductsbutton}>
+                                {product}
+                            </Button>
                         )) }
                     </Typography>
                 </Grid>
