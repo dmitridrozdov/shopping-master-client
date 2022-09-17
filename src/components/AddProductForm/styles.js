@@ -9,6 +9,14 @@ export default makeStyles(() => ({
     fontSize: '10px',
   },
 
+  fetchedProductsbutton: {
+    textTransform: 'none',
+    fontFamily: 'Montserrat',
+    fontSize: '10px',
+    borderRadius: 50,
+    marginLeft: '5px',
+  },
+
   textStyle: {
     fontFamily: 'Montserrat',
     fontSize: '10px',
