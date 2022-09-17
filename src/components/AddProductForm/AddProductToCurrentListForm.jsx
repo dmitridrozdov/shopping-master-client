@@ -67,7 +67,6 @@ const AddProductToCurrentListForm = () => {
     }, [segment, dispatch, isProductUnique])
 
     const handleSubmit = (e) => {
-        console.log(productData)
         e.preventDefault()
         const product = productData.product.toLowerCase().trim()
         if(isProductUnique(product)) {
@@ -80,8 +79,20 @@ const AddProductToCurrentListForm = () => {
         clear()
     }
 
+    const handleSubmitFetchedProduct = (p) => {
+        if(isProductUnique(p.product)) {
+            setSuccessMessage(p.product)
+            const category = getCategoryForProduct(p.product)
+            dispatch(createProduct({ ...productData, product: p.product, category: category }))
+        } 
+        else
+            setWarningMessage(p.product)
+        clear()      
+    }
+
     const clear = () => {
         setProductData({ category: '', product: '', picture: '' })
+        setFetchedProducts([]) 
     }
 
     const searchProducts = (e) => {
@@ -92,7 +103,6 @@ const AddProductToCurrentListForm = () => {
         } else {
             setFetchedProducts([])
         }
-        console.log(fetchedProducts)
     }
 
 
@@ -120,8 +130,13 @@ const AddProductToCurrentListForm = () => {
                 <Grid item xs={12}>
                     <Typography align='center' gutterBottom className={classes.textStyle}>
                         { fetchedProducts.slice(0,4).map(product => (
-                            <Button variant='outlined' className={classes.fetchedProductsbutton}>
-                                {product}
+                            <Button 
+                                variant='outlined' 
+                                className={classes.fetchedProductsbutton}
+                                onClick = {(e) => handleSubmitFetchedProduct({product}) }
+                                key = {product}
+                            >
+                                    {product}
                             </Button>
                         )) }
                     </Typography>
