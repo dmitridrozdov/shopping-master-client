@@ -129,9 +129,9 @@ const AddProductToCurrentListForm = () => {
             { fetchedProducts.length === 0 ? null :
                 <Grid item xs={12}>
                     <Typography align='center' gutterBottom className={classes.textStyle}>
-                        { fetchedProducts.slice(0,4).map(product => (
+                        { fetchedProducts.slice(0,10).map(product => (
                             <Button 
-                                variant='outlined' 
+                                variant='contained'
                                 className={classes.fetchedProductsbutton}
                                 onClick = {(e) => handleSubmitFetchedProduct({product}) }
                                 key = {product}
