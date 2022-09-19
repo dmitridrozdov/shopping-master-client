@@ -13,9 +13,11 @@ export default makeStyles(() => ({
     textTransform: 'none',
     fontFamily: 'Montserrat',
     fontSize: '10px',
-    borderRadius: 50,
+    borderRadius: 5,
+    color: 'white',
+    backgroundColor: '#00b5a2',
     marginLeft: '5px',
-    borderColor: '#E3E6E6',
+    marginTop: '5px',
   },
 
   textStyle: {
