@@ -8,18 +8,19 @@ const List = () => {
     const classes = useStyles()
     const currentListProducts = useSelector((state) => state.currentlistproducts)
 
-    const transformToCategoryProductStructure = () => {
+    const getCategories = () => {
         const onlyUnique = (value, index, self) => {
-            return self.indexOf(value) === index;
+            return self.indexOf(value) === index
         }
         return currentListProducts.map(p => p.category).filter(onlyUnique)
     }
 
-    const categoriesWithProducts = transformToCategoryProductStructure()
+    const categories = getCategories()
+    console.log(categories)
 
     return (
         <MUList className={classes.list}>
-            {categoriesWithProducts.map(c => (
+            {categories.sort().map(c => (
                 <Fade in={true} key={c}>
                     <Category key={c} category={c}/>
                 </Fade>
