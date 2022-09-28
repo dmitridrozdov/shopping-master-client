@@ -36,12 +36,13 @@ const ListItemCustom = ({ id, product }) => {
             <ListItemText
                 disableTypography
                 primary={
-                        <div>
-                            <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>
+                        <>
+                            {/* <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}> */}
+                            <Typography type="body2" className={classes.listItem}>
                                 {product}
                             </Typography>
-                            <Typography>{price}</Typography>    
-                        </div>
+                            <Typography className={classes.listItem}>{price}</Typography>    
+                        </>
                         
                     }
                 onClick={() => onClickItem(id)}/>
