@@ -41,7 +41,7 @@ const ListItemCustom = ({ id, product }) => {
                             <Typography type="body2" className={classes.listItem}>
                                 {product}
                             </Typography>
-                            <Typography className={classes.listItem}>{price}</Typography>    
+                            <Typography className={classes.overlay}>{price}</Typography>    
                         </>
                         
                     }
