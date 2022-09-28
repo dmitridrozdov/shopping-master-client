@@ -2,11 +2,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
 
-  listItem: {
-    "&,&:focus": {
-      backgroundColor: theme.palette.background.paper
-    }
-  },
+  // listItem: {
+  //   "&,&:focus": {
+  //     backgroundColor: theme.palette.background.paper
+  //   }
+  // },
 
   listItemDone: {
     "&,&:focus": {
@@ -14,5 +14,13 @@ export default makeStyles((theme) => ({
       color: "white"
     },
   },
+
+  listItem: { 
+    display: 'inline-block',
+    padding: '5px 5px',
+    fontFamily: 'Montserrat',
+    fontSize: '10px',
+    color: '#858585',
+   },
 
 }));
