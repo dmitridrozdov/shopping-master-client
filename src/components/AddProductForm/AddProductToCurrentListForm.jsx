@@ -92,7 +92,7 @@ const AddProductToCurrentListForm = () => {
             setSuccessMessage(p.product)
             const category = getCategoryForProduct(p.product)
             const wid = getWIDForProduct(p.product)
-            dispatch(createProduct({ ...productData, product: p.product, category: category, wid: 'uu ' }))
+            dispatch(createProduct({ ...productData, product: p.product, category: category, wid: wid }))
         } 
         else
             setWarningMessage(p.product)
