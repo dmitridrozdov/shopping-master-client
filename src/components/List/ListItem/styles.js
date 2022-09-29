@@ -12,10 +12,11 @@ export default makeStyles((theme) => ({
 
    overlay: {
     position: 'absolute',
-    top: '15px',
+    top: '14px',
     right: '10px',
     fontFamily: 'Montserrat',
     fontSize: '12px',
+    color: '#858585',
   },
 
 }));
