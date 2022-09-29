@@ -23,7 +23,6 @@ const ListItemCustom = ({ id, product, wid }) => {
     // const productID = '231598'
 
     if(wid !== '') {
-        console.log(wid)
         if(price === 0) {
             fetch(`${woolisApi.base}` + wid)
               .then((res) => res.json())
@@ -32,7 +31,7 @@ const ListItemCustom = ({ id, product, wid }) => {
                 setProductName(result.name)
               })
         }
-    }
+    } 
 
     return (
         <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
@@ -42,7 +41,7 @@ const ListItemCustom = ({ id, product, wid }) => {
                         <>
                             {/* <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}> */}
                             <Typography type="body2" className={classes.listItem}>
-                                {product}
+                                {productName === '' ? product : productName}
                             </Typography>
                             {/* <Typography className={classes.overlay}>{price}</Typography>     */}
                         </>
