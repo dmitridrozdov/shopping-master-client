@@ -2,6 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
 
+  listItemDone: {
+    "&,&:focus": {
+      backgroundColor: "#cc0000",
+      color: "white"
+    },
+  },
+
   listItem: { 
     display: 'inline-block',
     padding: '5px 5px',
