@@ -40,10 +40,10 @@ const ListItemCustom = ({ id, product, wid }) => {
                 primary={
                         <>
                             {/* <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}> */}
-                            <Typography type="body2" className={classes.listItem}>
+                            <Typography type="body2" className={productName === '' ? classes.listItem : classes.listItemFromWoolis}>
                                 {productName === '' ? product : productName}
                             </Typography>
-                            {/* <Typography className={classes.overlay}>{price}</Typography>     */}
+                            <Typography className={classes.overlay}>{productName === '' ? '' : price + '$'}</Typography>    
                         </>
                         
                     }
