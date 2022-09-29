@@ -15,7 +15,7 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontSize: '12px',
     cursor: 'pointer',
-    color: '#858585',
+    // color: '#858585',
    },
 
    listItemFromWoolis: { 
