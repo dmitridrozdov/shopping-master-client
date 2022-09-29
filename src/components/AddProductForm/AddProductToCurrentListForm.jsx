@@ -11,7 +11,7 @@ const AddProductToCurrentListForm = () => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const { segment } = useSpeechContext()
-    const [productData, setProductData] = useState({ category: '', product: '', picture: '' })
+    const [productData, setProductData] = useState({ category: '', product: '', wid: '' })
     const currentListProducts = useSelector(state => state.currentlistproducts)
     const products = useSelector((state) => state.products) //all products with categoryes
     const [open, setOpen] = useState(false)
@@ -48,6 +48,12 @@ const AddProductToCurrentListForm = () => {
             return 'not classified'
     }
 
+    const getWIDForProduct = (product) => {
+        const pJson = products.filter(p => p.product === product)
+        if(pJson.length > 0) return pJson[0].wid
+        else return ''
+    }
+
     useEffect(() => {
         if(segment) {
             segment.words.forEach((p) => {
@@ -56,7 +62,8 @@ const AddProductToCurrentListForm = () => {
                     if(isProductUnique(product)) {
                         setSuccessMessage(product)
                         const category = getCategoryForProduct(product)
-                        dispatch(createProduct({ category: category, product: product, picture: 'test' }))
+                        const wid = getWIDForProduct(product)
+                        dispatch(createProduct({ category: category, product: product, wid: wid }))
                     } 
                     else 
                         setWarningMessage(p.value)
@@ -72,7 +79,8 @@ const AddProductToCurrentListForm = () => {
         if(isProductUnique(product)) {
             setSuccessMessage(product)
             const category = getCategoryForProduct(product)
-            dispatch(createProduct({ ...productData, product: product, category: category }))
+            const wid = getWIDForProduct(product)
+            dispatch(createProduct({ ...productData, product: product, category: category, wid: wid }))
         } 
         else
             setWarningMessage(product)
@@ -83,7 +91,8 @@ const AddProductToCurrentListForm = () => {
         if(isProductUnique(p.product)) {
             setSuccessMessage(p.product)
             const category = getCategoryForProduct(p.product)
-            dispatch(createProduct({ ...productData, product: p.product, category: category }))
+            const wid = getWIDForProduct(p.product)
+            dispatch(createProduct({ ...productData, product: p.product, category: category, wid: 'uu ' }))
         } 
         else
             setWarningMessage(p.product)
@@ -91,7 +100,7 @@ const AddProductToCurrentListForm = () => {
     }
 
     const clear = () => {
-        setProductData({ category: '', product: '', picture: '' })
+        setProductData({ category: '', product: '', wid: '' })
         setFetchedProducts([]) 
     }
 
