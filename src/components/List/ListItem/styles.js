@@ -15,6 +15,16 @@ export default makeStyles((theme) => ({
     fontFamily: 'Montserrat',
     fontSize: '12px',
     cursor: 'pointer',
+    color: '#858585',
+   },
+
+   listItemFromWoolis: { 
+    display: 'inline-block',
+    padding: '5px 5px',
+    fontFamily: 'Montserrat',
+    fontSize: '12px',
+    cursor: 'pointer',
+    color: 'black',
    },
 
    overlay: {
@@ -23,7 +33,7 @@ export default makeStyles((theme) => ({
     right: '10px',
     fontFamily: 'Montserrat',
     fontSize: '12px',
-    color: '#858585',
+    color: 'black',
   },
 
 }));
