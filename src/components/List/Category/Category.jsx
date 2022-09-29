@@ -13,7 +13,7 @@ const Category = ({category}) => {
       <div style={{ fontFamily: 'Montserrat', fontSize: '10px', color: 'lightgrey' }}>{category}</div>
       {productsForCategory.map((product) => (
         <Fade in={true} key={product._id}>
-            <ListItemCustom id={product._id} product={product.product} wid=''/>
+            <ListItemCustom id={product._id} product={product.product} wid={product.wid}/>
         </Fade>
       ))}
     </MUList>
