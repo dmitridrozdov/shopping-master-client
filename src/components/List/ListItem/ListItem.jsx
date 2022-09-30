@@ -20,18 +20,17 @@ const ListItemCustom = ({ id, product, wid }) => {
         setDone(true)
     }
 
-    // const productID = '231598'
-
-    if(wid !== '') {
-        if(price === 0) {
-            fetch(`${woolisApi.base}` + wid)
-              .then((res) => res.json())
-              .then((result) => {
-                setPrice(result.offers.price)
-                setProductName(result.name)
-              })
-        }
-    } 
+    // if(wid !== '') {
+    //     if(price === 0) {
+    //         fetch(`${woolisApi.base}` + wid)
+    //           .then((res) => res.json())
+    //           .then((result) => {
+    //             setPrice(result.offers.price)
+    //             setProductName(result.name.trim())
+    //             console.log(product + ' wid=' + wid)
+    //           })
+    //     }
+    // } 
 
     return (
         <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
@@ -41,9 +40,10 @@ const ListItemCustom = ({ id, product, wid }) => {
                         <>
                             <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>
                             {/* <Typography type="body2" className={productName === '' ? classes.listItem : classes.listItemFromWoolis}> */}
-                                {productName === '' ? product : productName}
+                                {/* {productName === '' ? product : productName} */}
+                                {product}
                             </Typography>
-                            <Typography className={classes.overlay}>{productName === '' ? '' : price + '$'}</Typography>    
+                            {/* <Typography className={classes.overlay}>{productName === '' ? '' : price + '$'}</Typography>     */}
                         </>
                         
                     }
