@@ -29,7 +29,7 @@ export default makeStyles((theme) => ({
 
    overlay: {
     position: 'absolute',
-    top: '14px',
+    top: '10px',
     right: '10px',
     fontFamily: 'Montserrat',
     fontSize: '12px',
