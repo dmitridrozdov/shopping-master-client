@@ -4,16 +4,16 @@ import { deleteProduct } from '../../../actions/products'
 import { useDispatch } from 'react-redux'
 import useStyles from './styles'
 
-const woolisApi = {
-    base: "https://www.woolworths.com.au/api/v3/ui/schemaorg/product/",
-  }
+// const woolisApi = {
+//     base: "https://www.woolworths.com.au/api/v3/ui/schemaorg/product/",
+// }
 
 const ListItemCustom = ({ id, product, wid }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const [done, setDone] = useState(false)
-    const [price, setPrice] = useState(0)
-    const [productName, setProductName] = useState('')
+    // const [price, setPrice] = useState(0)
+    // const [productName, setProductName] = useState('')
     
     const onClickItem = (id) => {
         dispatch(deleteProduct(id))
