@@ -8,32 +8,11 @@ export default makeStyles((theme) => ({
       color: "white"
     },
   },
-
-  listItem: { 
-    display: 'inline-block',
-    padding: '5px 5px',
-    fontFamily: 'Montserrat',
-    fontSize: '12px',
-    cursor: 'pointer',
-    // color: '#858585',
-   },
-
-   listItemFromWoolis: { 
-    display: 'inline-block',
-    padding: '5px 5px',
-    fontFamily: 'Montserrat',
-    fontSize: '12px',
-    cursor: 'pointer',
-    color: 'black',
-   },
-
-   overlay: {
-    position: 'absolute',
-    top: '10px',
-    right: '10px',
-    fontFamily: 'Montserrat',
-    fontSize: '12px',
-    color: 'black',
+  
+  listItem: {
+    "&,&:focus": {
+      backgroundColor: theme.palette.background.paper
+    }
   },
 
 }));
