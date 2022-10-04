@@ -1,8 +1,9 @@
 import React from 'react'
 import useStyles from './styles'
 import { useSelector } from 'react-redux'
-import { Typography, AppBar, Toolbar, /*IconButton*/ } from '@material-ui/core'
-// import Add from '@material-ui/icons/Add'
+import { Typography, AppBar, Toolbar, IconButton } from '@material-ui/core'
+import AddTaskOutlinedIcon from '@material-ui/icons/AddToHomeScreenOutlined'
+// import AddTaskOutlinedIcon from '@mui/icons-material/AddTaskOutlined'
 
 const MyBar = () => {
     const classes = useStyles()
@@ -10,9 +11,9 @@ const MyBar = () => {
     return (
         <AppBar className = {classes.appBar} position='sticky' color='inherit' >
             <Toolbar>
-                {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                    <Add />
-                </IconButton> */}
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                    <AddTaskOutlinedIcon />
+                </IconButton>
                 <Typography className={classes.headerTextStyle}>Shopping List ({currentListProductsLength})</Typography>
             </Toolbar>
         </AppBar>
