@@ -36,17 +36,7 @@ const ListItemCustom = ({ id, product, wid }) => {
         <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
             <ListItemText
                 disableTypography
-                primary={
-                        <>
-                            <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>
-                            {/* <Typography type="body2" className={productName === '' ? classes.listItem : classes.listItemFromWoolis}> */}
-                                {/* {productName === '' ? product : productName} */}
-                                {product}
-                            </Typography>
-                            {/* <Typography className={classes.overlay}>{productName === '' ? '' : price + '$'}</Typography>     */}
-                        </>
-                        
-                    }
+                primary={ <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '12px', cursor: 'pointer' }}>{product}</Typography> }
                 onClick={() => onClickItem(id)}/>
         </ListItem>
     )
