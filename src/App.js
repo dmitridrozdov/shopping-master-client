@@ -74,7 +74,7 @@ const App = () => {
             <Container maxWidth='xl'>
                 <Routes>
                     <Route path='/' exact element={<AppList />} />
-                    {/* <Route path='/posts/search' exact component={Home} /> */}
+                    <Route path='/alerts' exact component={<Alerts />} />
                 </Routes>
             </Container>
         </BrowserRouter>
