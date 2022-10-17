@@ -11,7 +11,7 @@ const MyBar = () => {
     return (
         <AppBar className = {classes.appBar} position='sticky' color='inherit' >
             <Toolbar>
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+                <IconButton href='/alerts' edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
                     <AddTaskOutlinedIcon />
                 </IconButton>
                 <Typography className={classes.headerTextStyle}>Shopping List ({currentListProductsLength})</Typography>
