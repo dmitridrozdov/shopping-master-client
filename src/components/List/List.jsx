@@ -16,7 +16,7 @@ const List = () => {
     }
 
     const categories = getCategories()
-    console.log(categories)
+    // console.log(categories)
 
     return (
         <MUList className={classes.list}>
