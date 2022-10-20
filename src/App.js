@@ -12,7 +12,7 @@ const woolisApi = {
 const productsToMonitor = [
     { 
         wid: '231598',
-        price: '18'
+        price: '19'
     }
 ]
 
@@ -20,16 +20,17 @@ const App = () => {
 
     let alertArray = []
     const [alerts, setAlerts] = useState([])
-    // let ppp = [{tt: 1, ll:2}]
 
     useEffect(() => {
         productsToMonitor.forEach(p => 
             fetch(`${woolisApi.base}` + p.wid)
               .then((res) => res.json())
               .then((result) => {
-                // console.log(result.name.trim() + ': ' + result.offers.price)
-                alertArray.push({product: result.name.trim(), price: result.offers.price, usualprice: p.price})
-                setAlerts(alertArray)
+                if(p.price > result.offers.price)
+                {
+                    alertArray.push({product: result.name.trim(), price: result.offers.price, usualprice: p.price})
+                    setAlerts(alertArray)
+                }
               })
         )
         
