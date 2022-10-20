@@ -12,25 +12,11 @@ const ListItemCustom = ({ id, product, wid }) => {
     const classes = useStyles()
     const dispatch = useDispatch()
     const [done, setDone] = useState(false)
-    // const [price, setPrice] = useState(0)
-    // const [productName, setProductName] = useState('')
     
     const onClickItem = (id) => {
         dispatch(deleteProduct(id))
         setDone(true)
     }
-
-    // if(wid !== '') {
-    //     if(price === 0) {
-    //         fetch(`${woolisApi.base}` + wid)
-    //           .then((res) => res.json())
-    //           .then((result) => {
-    //             setPrice(result.offers.price)
-    //             setProductName(result.name.trim())
-    //             console.log(product + ' wid=' + wid)
-    //           })
-    //     }
-    // } 
 
     return (
         <ListItem divider={true} className={done ? classes.listItemDone : classes.listItem}>
