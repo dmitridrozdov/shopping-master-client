@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ListItem, ListItemText, Typography } from '@material-ui/core'
 import { deleteProduct } from '../../../actions/products'
 import { useDispatch } from 'react-redux'
 import useStyles from './styles'
-
-// const woolisApi = {
-//     base: "https://www.woolworths.com.au/api/v3/ui/schemaorg/product/",
-// }
 
 const ListItemCustom = ({ id, product, wid }) => {
     const classes = useStyles()
