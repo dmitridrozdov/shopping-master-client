@@ -2,7 +2,7 @@ import React from 'react'
 import useStyles from './styles'
 import { Fade, List as MUList, IconButton } from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBackIosOutlined'
-import ListItemCustom from '../List/ListItem/ListItem'
+import AlertListItem from './AlertListItem/AlertListItem'
 
 const Alerts = ({ alerts }) => {
   const classes = useStyles()
@@ -15,7 +15,7 @@ const Alerts = ({ alerts }) => {
       <MUList className={classes.list}>
         {alerts.map((alert) => (
           <Fade in={true} key={alert.product}>
-              <ListItemCustom id={alert.product} product={alert.product}/>
+              <AlertListItem id={alert.product} product={alert.product} price={alert.price}/>
           </Fade>
         ))}
       </MUList>
