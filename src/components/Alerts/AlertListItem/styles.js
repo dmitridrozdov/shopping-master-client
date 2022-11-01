@@ -8,6 +8,13 @@ export default makeStyles((theme) => ({
     }
   },
 
+  overlay1: {
+    position: 'absolute',
+    top: '10px',
+    right: '40px',
+    color: 'black',
+  },
+
   overlay2: {
     position: 'absolute',
     top: '10px',
