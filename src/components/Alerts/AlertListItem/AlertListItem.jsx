@@ -2,7 +2,7 @@ import React from 'react'
 import { ListItem, ListItemText, Typography } from '@material-ui/core'
 import useStyles from './styles'
 
-const AlertListItem = ({ id, product, price }) => {
+const AlertListItem = ({ id, product, price, usualprice }) => {
     const classes = useStyles()
 
     return (
@@ -12,6 +12,9 @@ const AlertListItem = ({ id, product, price }) => {
                 primary={ 
                     <>
                         <div className={classes.overlay2}>
+                            <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '10px', cursor: 'pointer' }}>{usualprice}</Typography>
+                        </div>
+                        <div className={classes.overlay1}>
                             <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '10px', cursor: 'pointer' }}>{price}</Typography>
                         </div>
                         <Typography type="body2" style={{ fontFamily: 'Montserrat', fontSize: '10px', cursor: 'pointer' }}>{product}</Typography> 
