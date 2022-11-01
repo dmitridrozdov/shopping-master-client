@@ -15,7 +15,7 @@ const Alerts = ({ alerts }) => {
       <MUList className={classes.list}>
         {alerts.map((alert) => (
           <Fade in={true} key={alert.product}>
-              <AlertListItem id={alert.product} product={alert.product} price={alert.price}/>
+              <AlertListItem id={alert.product} product={alert.product} price={alert.price} usualprice={alert.usualprice}/>
           </Fade>
         ))}
       </MUList>
