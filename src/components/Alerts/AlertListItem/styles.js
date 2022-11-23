@@ -22,4 +22,15 @@ export default makeStyles((theme) => ({
     color: 'black',
   },
 
-}));
+  priceNormal: {
+    fontFamily: 'Montserrat', 
+    fontSize: '11px',
+  },
+
+  priceLower: {
+    fontFamily: 'Montserrat', 
+    fontSize: '11px',
+    color: 'green',
+  },
+
+}))
