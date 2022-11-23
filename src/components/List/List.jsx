@@ -3,6 +3,7 @@ import { Fade, List as MUList } from '@material-ui/core'
 import useStyles from './styles'
 import { useSelector } from 'react-redux'
 import Category from './Category/Category'
+import { RotateSpinner } from 'react-spinners-kit'
 
 const List = () => {
     const classes = useStyles()
@@ -16,16 +17,17 @@ const List = () => {
     }
 
     const categories = getCategories()
-    // console.log(categories)
 
     return (
-        <MUList className={classes.list}>
-            {categories.sort().map(c => (
-                <Fade in={true} key={c}>
-                    <Category key={c} category={c}/>
-                </Fade>
-            ))}
-        </MUList>
+        !categories.length ? <RotateSpinner color="#7a34eb"/> : (
+            <MUList className={classes.list}>
+                {categories.sort().map(c => (
+                    <Fade in={true} key={c}>
+                        <Category key={c} category={c}/>
+                    </Fade>
+                ))}
+            </MUList>
+        )
     )
 }
 
