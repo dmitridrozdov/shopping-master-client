@@ -3,26 +3,27 @@ import useStyles from './styles'
 import { Fade, List as MUList, IconButton } from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBackIosOutlined'
 import AlertListItem from './AlertListItem/AlertListItem'
-
+import { RotateSpinner } from 'react-spinners-kit'
 
 const Alerts = ({ alerts }) => {
   const classes = useStyles()
   
   return (
-    <div>
-      <IconButton href='/' edge="start" className={classes.backButton} color="inherit" aria-label="menu">
-        <ArrowBack />
-      </IconButton>
-      <MUList className={classes.list}>
-        {alerts.map((alert) => (
-          <Fade in={true} key={alert.wid}>
-              <AlertListItem id={alert.id} product={alert.product} price={alert.price} usualprice={alert.usualprice}/>
-          </Fade>
-        ))}
-      </MUList>
-      
-    </div>
-  )
+      <div>
+        <IconButton href='/' edge="start" className={classes.backButton} color="inherit" aria-label="menu">
+          <ArrowBack />
+        </IconButton>
+        {!alerts.length ? <RotateSpinner color="#7a34eb"/> : (
+          <MUList className={classes.list}>
+            {alerts.map((alert) => (
+              <Fade in={true} key={alert.wid}>
+                  <AlertListItem id={alert.id} product={alert.product} price={alert.price} usualprice={alert.usualprice}/>
+              </Fade>
+            ))}
+          </MUList>
+        )}
+      </div>
+    )
 }
 
 export default Alerts
