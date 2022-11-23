@@ -16,7 +16,7 @@ const productsToMonitor = [
     },
     {
         wid: '160945',
-        price: '26',
+        price: '28',
     },
     { 
         wid: '813898',
