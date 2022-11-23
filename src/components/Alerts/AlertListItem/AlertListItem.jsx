@@ -11,12 +11,12 @@ const AlertListItem = ({ id, product, price, usualprice }) => {
                 primary={ 
                     <>
                         <div className={classes.overlay2}>
-                            <Typography type="body2" style={{ fontFamily: 'Architects Daughter', fontSize: '12px', cursor: 'pointer' }}>{usualprice}</Typography>
+                            <Typography type="body2" className={classes.priceNormal}>{usualprice}</Typography>
                         </div>
                         <div className={classes.overlay1}>
-                            <Typography type="body2" style={{ fontFamily: 'Architects Daughter', fontSize: '12px', cursor: 'pointer' }}>{price}</Typography>
+                            <Typography type="body2" className={price < usualprice? classes.priceLower : classes.priceNormal}>{price}</Typography>
                         </div>
-                        <Typography type="body2" style={{ fontFamily: 'Architects Daughter', fontSize: '12px', cursor: 'pointer' }}>{product}</Typography> 
+                        <Typography type="body2" className={price < usualprice? classes.priceLower : classes.priceNormal}>{product}</Typography> 
                     </>
                 }
             />
