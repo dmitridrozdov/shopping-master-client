@@ -19,6 +19,7 @@
     "react-redux": "^7.2.3",
     "react-router-dom": "^6.4.1",
     "react-scripts": "4.0.1",
+    "react-spinners-kit": "^1.9.1",
     "react-transition-group": "^4.4.1",
     "redux-thunk": "^2.3.0",
     "uuid": "^8.3.2",
