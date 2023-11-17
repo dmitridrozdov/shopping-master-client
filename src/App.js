@@ -24,6 +24,19 @@ const productsToMonitor = [
     },
 ]
 
+const products = [
+  {
+      product: 'Cadbury Old Gold Original Dark Chocolate Block 180g',
+      woolisid: '813898',
+      coleslink: 'https://www.coles.com.au/product/cadbury-old-gold-original-dark-chocolate-block-180g-2350568'
+  },
+  {
+    product: 'Guylian Chocolate Seashells 250g',
+    woolisid: '231598',
+    coleslink: 'https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307'
+}
+]
+
 const App = () => {
 
     const [alerts, setAlerts] = useState([])
