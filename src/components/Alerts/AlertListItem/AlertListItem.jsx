@@ -2,7 +2,7 @@ import React from 'react'
 import { ListItem, ListItemText, Typography } from '@material-ui/core'
 import useStyles from './styles'
 
-const AlertListItem = ({ id, product, price, usualprice }) => {
+const AlertListItem = ({ id, product, price, usualprice, colesprice }) => {
     const classes = useStyles()
     return (
         <ListItem divider={true} className={classes.listItem}>
@@ -15,6 +15,9 @@ const AlertListItem = ({ id, product, price, usualprice }) => {
                         </div>
                         <div className={classes.overlay1}>
                             <Typography type="body2" className={price < usualprice? classes.priceLower : classes.priceNormal}>{price}</Typography>
+                        </div>
+                        <div className={classes.overlay1}>
+                            <Typography type="body2">{colesprice}</Typography>
                         </div>
                         <Typography type="body2" className={price < usualprice? classes.priceLower : classes.priceNormal}>{product}</Typography> 
                     </>
