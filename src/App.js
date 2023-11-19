@@ -48,22 +48,7 @@ const products = [
 
 const App = () => {
 
-    const [woolisPrices, setWoolisPrices] = useState([])
-    const [colesPrices, setColesPrices] = useState([])
-
-    // const fetchAllWoolisPrices = async () => {
-    //   const promises = products.map(p => {
-    //     return fetch(`${woolisApi.base}` + p.woolisid)
-    //       .then(res => res.json())
-    //       .then((result) => {
-    //         return {wid: p.woolisid, product: p.product, price: result.offers.price, usualprice: p.usualprice}
-    //       })
-    //     })
-    
-    //   Promise.all(promises).then(results => {
-    //     setWoolisPrices(results)
-    //   })
-    // }
+    const [productsWithPrices, setProductsWithPrices] = useState([])
 
     const fetchAllWoolisPrices = async () => {
       try {
@@ -82,7 +67,7 @@ const App = () => {
         });
     
         const results = await Promise.all(promises);
-        setWoolisPrices(results);
+        setProductsWithPrices(results);
       } catch (error) {
         console.error('Error fetching prices:', error);
       }
@@ -101,25 +86,6 @@ const App = () => {
       }
     }
     
-
-    // const fetchColesPrices = async () => {
-    //   try {
-    //     const promises = products.map(async (p) => {
-    //       const price = await fetchColesPrice(p.coleslink)
-    //       return {wid: p.woolisid, product: p.product, price: price, usualprice: p.usualprice}
-    //     });
-    
-    //     const results = await Promise.all(promises)
-    //     setColesPrices(results)
-    //   } catch (error) {
-    //     console.error('Error fetching Coles prices:', error)
-    //   }
-    // }
-    
-    // fetchColesPrices()
-  
-    // console.log(fetchColesPrice('https://www.coles.com.au/product/cadbury-old-gold-original-dark-chocolate-block-180g-2350568'))
-    // console.log(fetchColesPrice('https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307'))
     fetchAllWoolisPrices()
 
     return (
@@ -127,7 +93,7 @@ const App = () => {
             <Container maxWidth='xl'>
                 <Routes>
                     <Route path='/' exact element={<AppList />} />
-                    <Route path='/alerts' exact element={<Alerts alerts={woolisPrices}/>} />
+                    <Route path='/alerts' exact element={<Alerts alerts={productsWithPrices}/>} />
                 </Routes>
             </Container>
         </BrowserRouter>
