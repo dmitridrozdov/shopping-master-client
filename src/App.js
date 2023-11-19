@@ -32,12 +32,12 @@ const products = [
     coleslink: 'https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307',
     usualprice: '18',
   },
-  {
-    product: 'Lavazza Crema E Gusto Ground Coffee 1Kg',
-    woolisid: '160945',
-    coleslink: '',
-    usualprice: '28',
-  },
+  // {
+  //   product: 'Lavazza Crema E Gusto Ground Coffee 1Kg',
+  //   woolisid: '160945',
+  //   coleslink: '',
+  //   usualprice: '28',
+  // },
   {
     product: 'Cadbury Old Gold Original Dark Chocolate Block 180g',
     woolisid: '813898',
@@ -51,33 +51,75 @@ const App = () => {
     const [woolisPrices, setWoolisPrices] = useState([])
     const [colesPrices, setColesPrices] = useState([])
 
-    const fetchAllWoolisPrices = () => {
-      const promises = products.map(p => {
-        return fetch(`${woolisApi.base}` + p.woolisid)
-          .then(res => res.json())
-          .then((result) => {
-            return {wid: p.woolisid, product: p.product, price: result.offers.price, usualprice: p.usualprice}
-          })
-        })
+    // const fetchAllWoolisPrices = async () => {
+    //   const promises = products.map(p => {
+    //     return fetch(`${woolisApi.base}` + p.woolisid)
+    //       .then(res => res.json())
+    //       .then((result) => {
+    //         return {wid: p.woolisid, product: p.product, price: result.offers.price, usualprice: p.usualprice}
+    //       })
+    //     })
     
-      Promise.all(promises).then(results => {
-        setWoolisPrices(results)
-      })
-    }
+    //   Promise.all(promises).then(results => {
+    //     setWoolisPrices(results)
+    //   })
+    // }
 
-    const fetchColesPrices = async () => {
-      const res = await fetch('https://www.coles.com.au/product/cadbury-old-gold-original-dark-chocolate-block-180g-2350568')
-      const html = await res.text()
-      
-      const root = parse(html)
-      const selectedElement = root.querySelector('.price__value')
-      if(selectedElement) {
-        const price = selectedElement.textContent
-        console.log('Coles price = ', price)
+    const fetchAllWoolisPrices = async () => {
+      try {
+        const promises = products.map(async (p) => {
+          const colesprice = await fetchColesPrice(p.coleslink);
+          const res = await fetch(`${woolisApi.base}${p.woolisid}`);
+          const result = await res.json();
+    
+          return {
+            wid: p.woolisid,
+            product: p.product,
+            price: result.offers.price,
+            usualprice: p.usualprice,
+            colesprice: colesprice,
+          };
+        });
+    
+        const results = await Promise.all(promises);
+        setWoolisPrices(results);
+      } catch (error) {
+        console.error('Error fetching prices:', error);
+      }
+    };
+
+    const fetchColesPrice = async (coleslink) => {
+      try {
+        const res = await fetch(coleslink)
+        const html = await res.text()
+        const root = parse(html)
+        const selectedElement = root.querySelector('.price__value')
+        return selectedElement ? selectedElement.textContent : '-1'
+      } catch (error) {
+        console.error('Error fetching Coles price:', error);
+        return '-1'
       }
     }
+    
 
-    fetchColesPrices()
+    // const fetchColesPrices = async () => {
+    //   try {
+    //     const promises = products.map(async (p) => {
+    //       const price = await fetchColesPrice(p.coleslink)
+    //       return {wid: p.woolisid, product: p.product, price: price, usualprice: p.usualprice}
+    //     });
+    
+    //     const results = await Promise.all(promises)
+    //     setColesPrices(results)
+    //   } catch (error) {
+    //     console.error('Error fetching Coles prices:', error)
+    //   }
+    // }
+    
+    // fetchColesPrices()
+  
+    // console.log(fetchColesPrice('https://www.coles.com.au/product/cadbury-old-gold-original-dark-chocolate-block-180g-2350568'))
+    // console.log(fetchColesPrice('https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307'))
     fetchAllWoolisPrices()
 
     return (
