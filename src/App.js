@@ -86,25 +86,7 @@ const App = () => {
         return '-1'
       }
     }
-    
-    const fetchBigWPrice = async (bigwlink) => {
-      try {
-        if(bigwlink === '') return '-'
-        const res = await fetch(bigwlink)
-        const html = await res.text()
-        return html
-        // const root = parse(html)
-        // const price = root.querySelector('[data-testid="price-value"]')
-        // const cents = root.querySelector('[data-testid="price-sup"]')
-        // return price ? price + '.' + cents : '-1'
-      } catch (error) {
-        console.error('Error fetching Big W price:', error);
-        return '-1'
-      }
-    }
 
-    console.log(fetchBigWPrice('https://www.bigw.com.au/product/cadbury-old-gold-dark-chocolate-block-180g/p/813898'))
-    // console.log(fetchBigWPrice('https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307'))
 
     fetchAllWoolisPrices()
 
