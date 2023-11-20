@@ -32,12 +32,12 @@ const products = [
     coleslink: 'https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307',
     usualprice: '18',
   },
-  // {
-  //   product: 'Lavazza Crema E Gusto Ground Coffee 1Kg',
-  //   woolisid: '160945',
-  //   coleslink: '',
-  //   usualprice: '28',
-  // },
+  {
+    product: 'Lavazza Crema E Gusto Ground Coffee 1Kg',
+    woolisid: '160945',
+    coleslink: '',
+    usualprice: '28',
+  },
   {
     product: 'Cadbury Old Gold Original Dark Chocolate Block 180g',
     woolisid: '813898',
@@ -75,6 +75,7 @@ const App = () => {
 
     const fetchColesPrice = async (coleslink) => {
       try {
+        if(coleslink === '') return '-'
         const res = await fetch(coleslink)
         const html = await res.text()
         const root = parse(html)
@@ -86,6 +87,25 @@ const App = () => {
       }
     }
     
+    const fetchBigWPrice = async (bigwlink) => {
+      try {
+        if(bigwlink === '') return '-'
+        const res = await fetch(bigwlink)
+        const html = await res.text()
+        return html
+        // const root = parse(html)
+        // const price = root.querySelector('[data-testid="price-value"]')
+        // const cents = root.querySelector('[data-testid="price-sup"]')
+        // return price ? price + '.' + cents : '-1'
+      } catch (error) {
+        console.error('Error fetching Big W price:', error);
+        return '-1'
+      }
+    }
+
+    console.log(fetchBigWPrice('https://www.bigw.com.au/product/cadbury-old-gold-dark-chocolate-block-180g/p/813898'))
+    // console.log(fetchBigWPrice('https://www.coles.com.au/product/guylian-chocolate-seashells-250g-5235307'))
+
     fetchAllWoolisPrices()
 
     return (
