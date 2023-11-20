@@ -4,6 +4,7 @@ import { Fade, List as MUList, IconButton } from '@material-ui/core'
 import ArrowBack from '@material-ui/icons/ArrowBackIosOutlined'
 import AlertListItem from './AlertListItem/AlertListItem'
 import { RotateSpinner } from 'react-spinners-kit'
+import ProductCard from './ProductCard'
 
 const Alerts = ({ alerts }) => {
   const classes = useStyles()
@@ -17,7 +18,8 @@ const Alerts = ({ alerts }) => {
           <MUList className={classes.list}>
             {alerts.map((alert) => (
               <Fade in={true} key={alert.wid}>
-                  <AlertListItem id={alert.id} product={alert.product} price={alert.price} usualprice={alert.usualprice} colesprice={alert.colesprice}/>
+                  {/* <AlertListItem id={alert.id} product={alert.product} price={alert.price} usualprice={alert.usualprice} colesprice={alert.colesprice}/> */}
+                  <ProductCard product={alert.product} price={alert.price} usualprice={alert.usualprice} colesprice={alert.colesprice}/>
               </Fade>
             ))}
           </MUList>
