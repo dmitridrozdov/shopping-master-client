@@ -76,16 +76,26 @@ const App = () => {
     const fetchColesPrice = async (coleslink) => {
       try {
         if(coleslink === '') return '-'
-        const res = await fetch(coleslink)
-        const html = await res.text()
-        const root = parse(html)
-        const selectedElement = root.querySelector('.price__value')
-        return selectedElement ? selectedElement.textContent : '-1'
+    
+        const res = await fetch(coleslink, { method: 'GET', mode: 'cors' });
+        // const proxyUrl = '/.netlify/functions/proxy?url=' + encodeURIComponent(coleslink);
+        // const res = await fetch(proxyUrl);
+        // console.log(proxyUrl)
+    
+        console.log('Response Status:', res.status);
+        console.log('Response Headers:', res.headers);
+    
+        const html = await res.text();
+        const root = parse(html);
+        const selectedElement = root.querySelector('.price__value');
+    
+        return selectedElement ? selectedElement.textContent : '-1';
       } catch (error) {
         console.error('Error fetching Coles price:', error);
-        return '-1'
+        return '-1';
       }
-    }
+    };
+    
 
 
     fetchAllWoolisPrices()
