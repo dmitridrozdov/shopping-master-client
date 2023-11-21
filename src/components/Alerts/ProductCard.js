@@ -12,13 +12,13 @@ const ProductCard = ({ product, price, usualprice, colesprice }) => {
           {product}
         </Typography>
         <div className={classes.priceContainer}>
-            <Typography className={classes.priceNormal} variant="subtitle1" color="text.secondary">
+            <Typography className={classes.priceNormal} variant="subtitle1" color="secondary">
                 Woolis Price: {price}
             </Typography>
-            <Typography className={classes.priceNormal} variant="subtitle1" color="text.secondary">
+            <Typography className={classes.priceNormal} variant="subtitle1" color="secondary">
                 Coles Price: {colesprice}
             </Typography>
-            <Typography className={classes.priceNormal} variant="subtitle1" color="text.secondary">
+            <Typography className={classes.priceNormal} variant="subtitle1" color="secondary">
                 Usual Price: {usualprice}
             </Typography>
         </div>
