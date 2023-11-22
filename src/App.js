@@ -96,8 +96,6 @@ const App = () => {
       }
     };
     
-
-
     fetchAllWoolisPrices()
 
     return (
